@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import {
   DivMessages,
@@ -17,14 +17,17 @@ function App() {
   const genAI = new GoogleGenerativeAI(keyApi);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
   const [valueSend, setValueSend] = useState("");
-  const [text, setTexte] = useState([
-    {
-      message: "olá sou o chat bot do ifpi o que posso lhe ajudar?",
-      send: "geminiApi",
-    },
-  ]);
+  const [text, setTexte] = useState([]);
   const [response, setReponse] = useState("");
   const [loading, setLoading] = useState(false);
+  const url = "http://localhost:5000/conversions";
+
+  useEffect(() => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => setTexte(data))
+      .catch((err) => console.log(err));
+  });
 
   const responseIa = async (message) => {
     setLoading(true);
@@ -36,25 +39,43 @@ function App() {
       message: text1,
       send: "geminiApi",
     };
-    const newMessage = [...text, newMessageApi];
     setLoading(false);
-    setTexte(newMessage);
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(newMessageApi),
+    });
   };
 
   const ia = () => {
     // funcao para atualizar mensagens
-
+    setValueSend("");
     const newMessageUser = {
       message: valueSend,
       sender: "user",
     };
-    const newMessages = [...text, newMessageUser];
-    setTexte(newMessages);
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(newMessageUser),
+    });
     responseIa(newMessageUser.message);
   };
 
   const hangeSend = (e) => {
     setValueSend(e.target.value);
+  };
+
+  const test = () => {
+    console.log(
+      text.map((messages) => {
+        <p>{messages}</p>;
+      }),
+    );
   };
 
   return (
@@ -66,13 +87,13 @@ function App() {
           {text.map((messages, i) => {
             return (
               <DivMessage key={i}>
-                <p>{messages.message}</p>;
+                <p>{messages.message}</p>
               </DivMessage>
             );
           })}
         </DivMessages>
         <DivComponents>
-          <DivInput onChange={hangeSend} />
+          <DivInput onChange={hangeSend} value={valueSend} />
           <Button onClick={ia}>
             <img src={image} height="20px" width="20px" />
           </Button>

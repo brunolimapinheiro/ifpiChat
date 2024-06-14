@@ -7,6 +7,8 @@ export const DivMain = Styled.div`
 
 export const DivMessages = Styled.div`
   margin:10px;
+  display:flex;
+  flex-direction: column;
 `;
 
 export const DivMessage = Styled.div`
@@ -18,16 +20,21 @@ export const DivMessage = Styled.div`
 `;
 
 export const DivComponents = Styled.div`
+position: fixed;
+  bottom: 5%;
+  left: 70%;
+  width: 100%;
 `;
 
 export const DivInput = Styled.input`
   height:40px;
-  width:200px;
+  padding:10px;
+  width:300px;
   border-radius: 10px;
-  border:none;
-  &:hover{
-    border:none;
-  }
+  border: 1px solid green;
+  outline: none;
+  font-weight: bold;
+  font-size:15px;
 `;
 
 export const Button = Styled.button`
@@ -36,6 +43,9 @@ export const Button = Styled.button`
   border-radius:50%;
   border:none;
   margin-left:10px;
+  &:hover{
+    cursor:pointer;
+  }
 `;
 
 export const H1 = Styled.h1`
