@@ -1,38 +1,7 @@
 {
   "conversions": [
     {
-      "message": "olá sou o chat bot do ifpi o que posso lhe ajudar?",
-      "send": "geminiApi",
-      "id": "0"
-    },
-    {
-      "id": "1d5b",
-      "message": "me fale em poucas palavra sobre o ifpi",
-      "sender": "user"
-    },
-    {
-      "id": "74fd",
-      "message": "O IFPI é a **Federação Internacional da Indústria Fonográfica**, que representa a indústria musical global. \n",
-      "send": "geminiApi"
-    },
-    {
-      "id": "6907",
-      "message": "me indique filmes",
-      "sender": "user"
-    },
-    {
-      "id": "d119",
-      "message": "Para te indicar filmes, preciso saber qual tipo de filme você gosta! Me fale:\n\n* **Qual o seu gênero favorito?** (ação, comédia, drama, terror, romance, sci-fi, etc.)\n* **Quais são seus filmes favoritos?** (isso me ajuda a entender seu gosto)\n* **Você prefere filmes novos ou clássicos?**\n* **Tem algum ator ou diretor que você gosta?**\n\nCom essas informações, posso te indicar filmes que você provavelmente vai amar! \n",
-      "send": "geminiApi"
-    },
-    {
-      "id": "c54f",
-      "message": "me indique outros",
-      "sender": "user"
-    },
-    {
-      "id": "2376",
-      "message": "Por favor, me dê mais contexto! O que você gostaria de saber? \n\nPara que eu possa te ajudar, me diga:\n\n* **O que você está procurando?** (Ex: outros filmes, outros livros, outras opções de comida, outros destinos de viagem...)\n* **Qual o tema ou assunto que te interessa?** (Ex: filmes de terror, livros de ficção científica, comida italiana, viagens para a praia...)\n* **O que você já sabe?** (Ex: já assisti \"O Senhor dos Anéis\", já li \"1984\", já comeu pizza, já visitou Paris...)\n\nDessa forma, eu posso te indicar outras coisas que você pode gostar! \n",
+      "message": "ola sou o chat bot do ifpi o que posso lhe ajudar?",
       "send": "geminiApi"
     }
   ]
